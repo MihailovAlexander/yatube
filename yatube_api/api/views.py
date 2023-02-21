@@ -26,11 +26,6 @@ class CommentViewSet(viewsets.ModelViewSet):
             post=self.get_post()
         )
 
-    def get_permissions(self):
-        if self.request.method == 'POST':
-            return (permissions.IsAuthenticated(),)
-        return super().get_permissions()
-
 
 class GroupViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Group.objects.all()
@@ -42,11 +37,6 @@ class PostViewSet(viewsets.ModelViewSet):
     serializer_class = PostSerializer
     permission_classes = (IsAuthorOrReadOnly,)
     pagination_class = LimitOffsetPagination
-
-    def get_permissions(self):
-        if self.request.method == 'POST':
-            return (permissions.IsAuthenticated(),)
-        return super().get_permissions()
 
     def perform_create(self, serializer):
         serializer.save(
