@@ -48,6 +48,14 @@ python manage.py createsuperuser
 python manage.py runserver
 ```
 
+## Запуск тестов
+
+Находясь в главной папке проекта, где есть папка  `tests`, при активированном виртуальном окружении выполнить 
+
+```bash
+pytest
+```
+
 ## Примеры
 
 
@@ -59,7 +67,7 @@ GET, PUT, PATCH, DELETE /api/v1/posts/{id}/
 ```
 
 
-### Работа с коментариями
+### Работа с комментариями
 
 ```
 GET, POST /api/v1/posts/{post_id}/comments/
